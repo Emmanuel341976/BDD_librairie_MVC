@@ -64,4 +64,32 @@ class Controller_fournisseur extends Controller
         $data = ["fournisseur" => $m->get_all_fournisseur_pays($pays)];
         $this->render("all_fournisseur", $data);
     }
+
+    public function action_saisie_fournisseur()
+    {
+
+        // $m = Model::get_model();
+        // $data = ["livre" => $m->get_all_cediteur()];
+        $this->render("saisie_fournisseur");
+    }
+
+    public function action_add_fournisseur()
+    {
+        $saisie_fournisseur = [
+            $_POST['Code_fournisseur'],
+            $_POST['Raison_sociale'],
+            $_POST['Rue_fournisseur'],
+            $_POST['Code_postal'],
+            $_POST['Localite'],
+            $_POST['Pays'],
+            $_POST['Tel_fournisseur'],
+            $_POST['Url_fournisseur'],
+            $_POST['Email_fournisseur'],
+            $_POST['Fax_fournisseur']
+        ];
+        $m = Model::get_model();
+        $data = ["fournisseur" => $m->get_add_fournisseur($saisie_fournisseur)];
+
+        $this->render("add_fournisseur", $data);
+    }
 }

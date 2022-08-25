@@ -48,7 +48,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="?controller=livre&action=saisie_livre">Ajouter un livre</a>
-                    <a class="dropdown-item" href="?controller=fournisseur&action=add_fournisseur">Ajouter un fournisseur</a>
+                    <a class="dropdown-item" href="?controller=fournisseur&action=saisie_fournisseur">Ajouter un fournisseur</a>
                     <a class="dropdown-item" href="?controller=commande&action=add_commande">Ajouter une commande</a>
                 </div>
             </li>
