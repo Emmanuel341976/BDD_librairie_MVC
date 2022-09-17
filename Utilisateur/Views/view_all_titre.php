@@ -2,7 +2,7 @@
     <div class="row mt-3 mb-3">
         <label for="select-livre" class="col-sm-2 col-form-label">Selection du livre :</label>
         <div class="col-sm-6">
-            <select name="titre" id="select-livre">
+            <select class="custom-select" name="titre" id="select-livre">
 
                 <?php foreach ($titre as $t) : ?>
                     <option value="<?= $t->Titre_livre ?>"><?= $t->Titre_livre ?></option>

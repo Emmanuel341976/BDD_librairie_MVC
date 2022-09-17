@@ -170,7 +170,44 @@ class Model
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
-   
+
+    public function get_add_livre($saisie_livre)
+    {
+        $requete = $this->bd->prepare("INSERT INTO Livre (ISBN, Titre_livre, Theme_livre, Nbr_pages_livre, Format_livre, Nom_auteur, Prenom_auteur, Editeur, Annee_edition, Prix_Vente, Langue_livre) VALUES (:ISBN, :Titre_livre, :Theme_livre, :Nbr_pages_livre, :Format_livre, :Nom_auteur, :Prenom_auteur, :Editeur, :Annee_edition, :Prix_Vente, :Langue_livre)");
+
+        $requete->bindValue(':ISBN', $saisie_livre[0]);
+        $requete->bindValue(':Titre_livre', $saisie_livre[1]);
+        $requete->bindValue(':Theme_livre', $saisie_livre[2]);
+        $requete->bindValue(':Nbr_pages_livre', $saisie_livre[3]);
+        $requete->bindValue(':Format_livre', $saisie_livre[4]);
+        $requete->bindValue(':Nom_auteur', $saisie_livre[5]);
+        $requete->bindValue(':Prenom_auteur', $saisie_livre[6]);
+        $requete->bindValue(':Editeur', $saisie_livre[7]);
+        $requete->bindValue(':Annee_edition', $saisie_livre[8]);
+        $requete->bindValue(':Prix_Vente', $saisie_livre[9]);
+        $requete->bindValue(':Langue_livre', $saisie_livre[10]);
+        $r = $requete->execute();
+        return $r;
+    }
+
+    public function get_add_fournisseur($saisie_fournisseur)
+    {
+        $requete = $this->bd->prepare("INSERT INTO Fournisseur (Code_fournisseur, Raison_sociale, Rue_fournisseur, Code_postal, Localite, Pays, Tel_fournisseur, Url_fournisseur, Email_fournisseur, Fax_fournisseur) VALUES (:Code_fournisseur, :Raison_sociale, :Rue_fournisseur, :Code_postal, :Localite, :Pays, :Tel_fournisseur, :Url_fournisseur, :Email_fournisseur, :Fax_fournisseur)");
+
+        $requete->bindValue(':Code_fournisseur', $saisie_fournisseur[0]);
+        $requete->bindValue(':Raison_sociale', $saisie_fournisseur[1]);
+        $requete->bindValue(':Rue_fournisseur', $saisie_fournisseur[2]);
+        $requete->bindValue(':Code_postal', $saisie_fournisseur[3]);
+        $requete->bindValue(':Localite', $saisie_fournisseur[4]);
+        $requete->bindValue(':Pays', $saisie_fournisseur[5]);
+        $requete->bindValue(':Tel_fournisseur', $saisie_fournisseur[6]);
+        $requete->bindValue(':Url_fournisseur', $saisie_fournisseur[7]);
+        $requete->bindValue(':Email_fournisseur', $saisie_fournisseur[8]);
+        $requete->bindValue(':Fax_fournisseur', $saisie_fournisseur[9]);
+        $r = $requete->execute();
+        return $r;
+    }
+
     public function get_all_titres_for_commandes()
     {
         $requete = $this->bd->prepare("SELECT Id_Livre, Titre_livre FROM Livre ORDER BY Titre_livre");
@@ -184,5 +221,18 @@ class Model
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
-   
+
+
+    public function get_add_commande($saisie_commande)
+    {
+        $requete = $this->bd->prepare("INSERT INTO Commander (Id_Livre, Id_fournisseur, Date_achat, Prix_achat, Nbr_exemplaire) VALUES (:Id_Livre, :Id_fournisseur, :Date_achat, :Prix_achat, :Nbr_exemplaire)");
+
+        $requete->bindValue(':Id_Livre', $saisie_commande[0]);
+        $requete->bindValue(':Id_fournisseur', $saisie_commande[1]);
+        $requete->bindValue(':Date_achat', $saisie_commande[2]);
+        $requete->bindValue(':Prix_achat', $saisie_commande[3]);
+        $requete->bindValue(':Nbr_exemplaire', $saisie_commande[4]);
+        $r = $requete->execute();
+        return $r;
+    }
 }

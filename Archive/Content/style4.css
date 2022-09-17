@@ -53,7 +53,7 @@ footer {
     color: white;
 }
 
-/* input:invalid {
+input:invalid {
     background-color: #ffdddd;
 }
 
@@ -76,4 +76,4 @@ input:required {
 
 input:required:valid {
     border-color: #008000;
-} */
+}

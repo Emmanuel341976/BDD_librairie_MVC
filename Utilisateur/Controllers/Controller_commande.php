@@ -66,31 +66,4 @@ class Controller_commande extends Controller
         $this->render("all_commande_date", $data);
     }
 
-
-    public function action_saisie_commande()
-    {
-
-        $m = Model::get_model();
-
-        $data = ["titre" => $m->get_all_titres_for_commandes(), "fournisseur" => $m->get_all_rsociale_for_commandes()];
-
-
-
-        $this->render("saisie_commande", $data);
-    }
-
-    public function action_add_commande()
-    {
-        $saisie_commande = [
-            $_POST['Id_Livre'],
-            $_POST['Id_fournisseur'],
-            $_POST['Date_achat'],
-            $_POST['Prix_achat'],
-            $_POST['Nbr_exemplaire']
-        ];
-        $m = Model::get_model();
-        $data = ["commande" => $m->get_add_commande($saisie_commande)];
-
-        $this->render("add_commande", $data);
-    }
 }

@@ -28,9 +28,9 @@
     require_once 'Models/Model.php';
     require_once 'Utils/Header.php';
 
-    $controllers = ["signin", "signup"];
+    $controllers = ["home", "livre", "fournisseur", "commande"];
 
-    $controller_defaut = "signin";
+    $controller_defaut = "home";
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
 

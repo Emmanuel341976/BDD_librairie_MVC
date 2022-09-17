@@ -42,6 +42,16 @@
                     <a class="dropdown-item" href="?controller=commande&action=all_date">Par date</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Saisies
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="?controller=livre&action=saisie_livre">Ajouter un livre</a>
+                    <a class="dropdown-item" href="?controller=fournisseur&action=saisie_fournisseur">Ajouter un fournisseur</a>
+                    <a class="dropdown-item" href="?controller=commande&action=saisie_commande">Ajouter une commande</a>
+                </div>
+            </li>
         </ul>
     </div>
 </header>

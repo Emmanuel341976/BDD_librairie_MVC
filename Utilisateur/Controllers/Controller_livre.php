@@ -65,29 +65,4 @@ class Controller_livre extends Controller
         $this->render("all_livre", $data);
     }
 
-    public function action_saisie_livre()
-    {
-        $this->render("saisie_livre");
-    }
-
-    public function action_add_livre()
-    {
-        $saisie_livre = [
-            $_POST['ISBN'],
-            $_POST['Titre_livre'],
-            $_POST['Theme_livre'],
-            $_POST['Nbr_pages_livre'],
-            $_POST['Format_livre'],
-            $_POST['Nom_auteur'],
-            $_POST['Prenom_auteur'],
-            $_POST['Editeur'],
-            $_POST['Annee_edition'],
-            $_POST['Prix_Vente'],
-            $_POST['Langue_livre']
-        ];
-        $m = Model::get_model();
-        $data = ["livre" => $m->get_add_livre($saisie_livre)];
-
-        $this->render("add_livre", $data);
-    }
 }
